@@ -1,0 +1,17 @@
+extends ./layout/template
+
+block notice
+	.info-list
+		.info 1. Bạn còn lại 
+			span(id='turn_count')
+			|  lượt thi.
+		.info 2. Bài thi có 4 câu tự luận làm trong 120 phút.
+		.info 3. Bạn hãy viết bài làm của mình vào phần điền đáp án.
+		.info 4. Khi bạn nộp bài, hệ thống sẽ hiện đáp án. Bạn tự đối chiếu và tham khảo nhé.
+		.info 5. Chúc bạn may mắn 
+			i.fas.fa-heart
+			| .
+block script-for-page
+	script.
+		let testId = "#{test.id}"
+	script(src='/js/crt.script.js')

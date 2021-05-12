@@ -1,0 +1,25 @@
+extends ./layout/common
+
+block content
+	.card.shadow
+		h5.card-header Danh sách đề thi
+		.card-body
+			table.table
+				thead
+					tr.text-center
+						th Loại
+						th.w-75 Đề thi
+						th Thao tác
+				tbody
+					each q in mCQTests
+						tr
+							td.align-middle Trắc nghiệm
+							td.align-middle= q.name
+							td.text-center
+								a.btn.btn-outline-primary(href="/trac-nghiem/"+q._id) Vào thi
+					each q in cRTTests
+						tr
+							td.align-middle Tự luận
+							td.align-middle= q.name
+							td.text-center
+								a.btn.btn-outline-primary(href="/tu-luan/"+q._id) Vào thi

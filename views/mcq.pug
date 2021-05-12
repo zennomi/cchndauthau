@@ -1,0 +1,17 @@
+extends ./layout/template
+
+block notice
+	.info-list
+		.info 1. Bạn còn lại 
+			span(id='turn_count')
+			|  lượt thi.
+		.info 2. Bài thi có #{test.questions.length} câu trắc nghiệm làm trong 90 phút.
+		.info 3. Mỗi câu trắc nghiệm chỉ có một phương án đúng.
+		.info 4. Khi bạn nộp bài hệ thống sẽ tự chấm phần trắc nghiệm cho bạn.
+		.info 5. Chúc bạn may mắn 
+			i.fas.fa-heart
+			| .
+block script-for-page
+	script.
+		let testId = "#{test.id}"
+	script(src='/js/mcq.script.js')

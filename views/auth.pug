@@ -1,0 +1,11 @@
+extends ./layout/common
+block content
+	if !login
+		.alert.alert-danger
+			| Sai mật khẩu
+	.card.shadow.w-md-50
+		h5.card-header Nhập mật khẩu admin
+		.card-body
+			form.form(action="/auth" method="POST")
+				input.form-control.mb-2(type="password", name="password")
+				button.btn.btn-primary(type="submit") Nhập

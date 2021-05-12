@@ -1,0 +1,83 @@
+extends ./common
+
+block content 
+	// start Quiz button
+	.container.pt-5
+		div(class='code_box card text-center')
+			h5.card-header Nhập mã thi
+			.card-body
+				form.start
+					input.form-control.mb-2(type='text' name='code' id='code_input')
+					button.btn.btn-primary Xác nhận
+		// Info Box
+		div(class='info_box')
+			.info-title
+				span Chú ý
+			block notice
+			//- .info-list
+			//- 	.info 1. Bạn còn lại 
+			//- 		span(id='turn_count')
+			//- 		|  lượt thi.
+			//- 	.info 2. Bài thi có 
+			//- 		span#mCQue
+			//- 		| câu trắc nghiệm.
+			//- 	.info 3. Mỗi câu trắc nghiệm chỉ có một phương án đúng.
+			//- 	.info 4. Khi bạn nộp bài hệ thống sẽ tự chấm phần trắc nghiệm cho bạn.
+			//- 	.info 5. Chúc bạn may mắn 
+			//- 		i.fas.fa-heart
+			//- 		| .
+			.buttons
+				button.quit.btn.btn-danger Thoát
+				button.restart.btn Bắt đầu
+		// Quiz Box
+		div(class='quiz_area row row-cols-1 row-cols-lg-2 gy-2')
+			.col.col-lg-8
+				div(class='quiz_box')
+					header
+						.title Tên bài thi
+						.timer.justify-content-evenly
+							div(class='time_left_txt') Còn lại
+							div(class='timer_sec') 0
+						div(class='time_line')
+					section
+						div(class='que_text')
+							// Here I've inserted question from JavaScript
+						div(class='option_list')
+							// Here I've inserted options from JavaScript
+						div(class='total_que')
+							// Here I've inserted Question Count Number from JavaScript
+					// footer of Quiz Box
+					footer.d-flex.flex-wrap.justify-content-between
+						button(class='previous_btn btn btn-primary show')
+							i.fas.fa-arrow-circle-left
+							|  Câu
+							| trước
+						button(class='next_btn btn btn-primary show') Câu sau 
+							i.fas.fa-arrow-circle-right
+						button(class='mark_btn btn btn-warning text-white') Đánh dấu 
+							i.fas.fa-flag
+						button(class='submit_btn btn btn-success') Nộp bài 
+							i.fas.fa-chevron-circle-up
+			.col.col-lg-4
+				.card.shortcut
+					h5.card-header
+						| Danh sách câu hỏi
+					.card-body#shortcut_box
+					.card-body
+						button.btn.btn-danger#home_btn(href="/")
+							| Trang chủ 
+							i.fas.fa-home 
+		// Result Box
+		div(class='result_box text-center')
+			.icon
+				i.fas.fa-crown
+			div(class='complete_text') Bạn đã hoàn thành bài thi!
+			div(class='score_text')
+				// Here I've inserted Score Result from JavaScript
+			.buttons.justify-content-around
+				button.restart Xem đáp án
+				button.quit Thoát
+	// Inside this JavaScript file I've coded all Quiz Codes
+	script(src='/js/init.js')
+	block script-for-page
+	

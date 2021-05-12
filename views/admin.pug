@@ -1,0 +1,36 @@
+extends ./layout/common
+
+block content
+	.card.shadow
+		h5.card-header Các mã khả dụng
+		.card-body
+			table.table.text-center
+				thead
+					tr
+						th Mã
+						th Số lượt còn lại
+						th
+				tbody
+					each code in codes
+						tr
+							td= code.code
+							td= code.count
+							td
+								button.btn.btn-danger(onclick="deleteCode('"+code._id+"')") X
+			button.btn.btn-success#createCodeBtn(type="button" data-bs-toggle="modal" data-bs-target="#codeModal") Tạo mã mới
+	.modal#codeModal(tabindex='-1')
+		.modal-dialog
+			.modal-content
+				.modal-header
+					h5.modal-title Tạo code mới
+					button.btn-close(type='button' data-bs-dismiss='modal' aria-label='Close')
+				.modal-body
+					form.form(action="/api/new-code" method="POST")
+						label Mã 
+						input.form-control.mb-2(type="text", name="code" value=Math.random().toString(36).substring(7))
+						label Số lần thi thử
+						input.form-control.mb-2(type="number", name="count" value=10)
+						button.btn.btn-primary.mb-2(type='submit') Tạo mã mới
+					button.btn.btn-secondary(type='button' data-bs-dismiss='modal') Đóng cửa sổ
+
+	script(src="/js/admin.js") 
