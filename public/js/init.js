@@ -39,7 +39,7 @@ start_form.addEventListener("submit", (e) => {
     e.preventDefault();
     fetchData('/api/get-code', {code: document.getElementById('code_input').value})
     .then(userCode => {
-        if (!userCode) {
+        if (!userCode || userCode.count < 0) {
             alert("Có vẻ code bạn vừa nhập đã hết hạn.");
             return;
         }
