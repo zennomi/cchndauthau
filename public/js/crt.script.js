@@ -7,6 +7,7 @@ continue_btn.onclick = () => {
             questions = res;
             info_box.classList.remove("activeInfo"); //hide info box
             quiz_area.classList.add("activeQuiz"); //show quiz box
+            marqueefy(quiz_area.querySelector('.marquee'));
             questions.forEach((q, i) => {
                 shortcut_box.innerHTML += `<button class="btn btn-question mx-1 my-1" id=btn-que-${i} onclick='showQuestions(${i})'>${i + 1}</button>`
             })

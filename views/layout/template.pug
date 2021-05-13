@@ -11,8 +11,11 @@ block content
 					button.btn.btn-primary Xác nhận
 		// Info Box
 		div(class='info_box')
-			.info-title
-				span Chú ý
+			.info-title.p-0
+				.marquee
+					| Thanh Ngoan tư vấn các loại chứng chỉ xây dựng liên hệ: 
+					| 0923806883 - 0973334916 - 0916878516 
+			.info-title Chú ý
 			block notice
 			//- .info-list
 			//- 	.info 1. Bạn còn lại 
@@ -34,7 +37,12 @@ block content
 			.col.col-lg-8
 				div(class='quiz_box')
 					header
-						.title Tên bài thi
+						.info-title.p-0
+							.marquee
+								| Thanh Ngoan tư vấn các loại chứng chỉ xây dựng liên hệ: 
+								| 0923806883 - 0973334916 - 0916878516 
+					header
+						.title= test.name
 						.timer.justify-content-evenly
 							div(class='time_left_txt') Còn lại
 							div(class='timer_sec') 0
@@ -78,6 +86,7 @@ block content
 				button.restart Xem đáp án
 				button.quit Thoát
 	// Inside this JavaScript file I've coded all Quiz Codes
+	script(src='/js/marquee.js')
 	script(src='/js/init.js')
 	block script-for-page
 	

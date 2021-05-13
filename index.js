@@ -15,6 +15,7 @@ mongoose.connect(process.env.MONGODB_URL, {
 }).then(() => {
 	console.log('Connected to MongoDB Atlas.');
 }).catch((err) => {
+	console.log(err);
 	console.log('Error occurred connecting to MongoDB Atlas');
 });
 
@@ -47,7 +48,7 @@ app.get('/trac-nghiem/:id', async (req, res) => {
 		test = await mCQTest.findById(req.params.id);
 		if (!test) throw new Error('Not Found Test');
 	} catch (err) {
-		return redirect('/');
+		return res.redirect('/');
 	}
 	res.render('mcq', {test});
 })
@@ -58,7 +59,7 @@ app.get('/tu-luan/:id', async (req, res) => {
 		test = await cRTTest.findById(req.params.id);
 		if (!test) throw new Error('Not Found Test');
 	} catch (err) {
-		return redirect('/');
+		return res.redirect('/');
 	}
 	res.render('crt', {test});
 })
@@ -122,6 +123,14 @@ app.post('/api/delete-code', (req, res) => {
 	Code.findByIdAndDelete(req.body.id, (err) => {
 		res.json('deleted');
 	})
+})
+
+app.get((req, res) => {
+	res.redirect('/');
+})
+
+app.post((req, res) => {
+	res.status(404).json({status: 404});
 })
 
 app.listen(port, () => {

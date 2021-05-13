@@ -1,6 +1,5 @@
 function deleteCode(id) {
-	console.log(id);
-	if (confirm("Bạn có muốn xóa code này?")) {
+	if (confirm("Bạn có muốn xóa mã này?")) {
 		fetchData('/api/delete-code', {id})
 		.then(res => {
 			window.location.reload();

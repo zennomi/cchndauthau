@@ -64,7 +64,7 @@ body{
     transition: all 0.3s ease;
 }
 
-.code_box .title, .info_box .info-title{
+.code_box .title, .info-title{
     height: 60px;
     width: 100%;
     border-bottom: 1px solid lightgrey;
@@ -74,6 +74,8 @@ body{
     border-radius: 5px 5px 0 0;
     font-size: 20px;
     font-weight: 600;
+    overflow: hidden;
+    white-space: nowrap;
 }
 
 .info_box .info-list{
@@ -429,3 +431,8 @@ footer button.show{
     background: var(--bs-warning);
     border: none;
 }
+
+.marquee {
+    overflow:hidden;
+    white-space: nowrap;
+  }

@@ -39,13 +39,14 @@ start_form.addEventListener("submit", (e) => {
     e.preventDefault();
     fetchData('/api/get-code', {code: document.getElementById('code_input').value})
     .then(userCode => {
-        if (!userCode || userCode.count < 0) {
+        if (!userCode || userCode.count <= 0) {
             alert("Có vẻ code bạn vừa nhập đã hết hạn.");
             return;
         }
         code_box.style.display = "none";
         info_box.classList.add("activeInfo"); //show info box
         document.getElementById('turn_count').textContent = userCode.count;
+        marqueefy(info_box.querySelector('.marquee'));
         // document.getElementById('mCQue').textContent = mCQuestions.length;
         // document.getElementById('cRTest').textContent = cRTests.length;
     })
